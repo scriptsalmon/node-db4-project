@@ -16,8 +16,8 @@ exports.up = function (knex) {
       table.string("ingredient_name", 128).notNullable();
       table.integer("quantity").notNullable();
     })
-    .createTable("steps_ingredients", (table) => {
-      table.increments("steps_ingredients_id");
+    .createTable("recipe", (table) => {
+      table.increments("recipe_id");
       table
         .integer("step_id")
         .unsigned()
@@ -40,5 +40,5 @@ exports.down = function (knex) {
     .dropTableIfExists("recipes")
     .dropTableIfExists("steps")
     .dropTableIfExists("ingredients")
-    .dropTableIfExists("steps_ingredients")
+    .dropTableIfExists("recipe")
 };
